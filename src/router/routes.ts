@@ -3,7 +3,8 @@ import { RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('pages/auth/Login.vue')
+    component: () => import('pages/auth/Login.vue'),
+    name: 'loginPage'
   },
   {
     path: '/admin/',
@@ -37,6 +38,21 @@ const routes: RouteRecordRaw[] = [
         path: 'tab',
         name: 'tabAdmin',
         component: () => import('src/pages/admin/tab/Index.vue')
+      },
+      {
+        path: 'notify',
+        name: 'notifyAdmin',
+        component: () => import('src/pages/admin/notify/Index.vue')
+      },
+      {
+        path: 'dialog',
+        name: 'dialogAdmin',
+        component: () => import('src/pages/admin/dialog/Index.vue')
+      },
+      {
+        path: 'blank',
+        name: 'blankAdmin',
+        component: () => import('src/pages/admin/BlankPage.vue')
       }
     ]
   },

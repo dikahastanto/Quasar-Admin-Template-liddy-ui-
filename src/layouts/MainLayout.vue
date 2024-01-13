@@ -33,9 +33,9 @@
                       </q-avatar>
                     </div>
                     <div class="col">
-                      <div class="text-bold text-body1">Admin Geo</div>
-                      <div>Admin Geo</div>
-                      <div class="text-subtitle">admingeo@gmail.com</div>
+                      <div class="text-bold text-body1">Admin</div>
+                      <div>Admin</div>
+                      <div class="text-subtitle">admin@gmail.com</div>
                     </div>
                   </div>
                   <q-separator class="q-mt-md q-mx-md"/>

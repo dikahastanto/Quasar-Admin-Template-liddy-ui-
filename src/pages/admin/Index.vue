@@ -32,20 +32,99 @@
         />
       </div>
     </div>
-    <!-- <div class="text-body1 q-mt-lg text-bold my-text-color">User Data</div>
-    <div class="text-body2 my-text-color q-mb-md">All of user data</div>
-    <q-separator class="q-mb-md"/> -->
+    <div class="text-body1 q-mt-lg text-bold my-text-color">Transaction</div>
+    <div class="text-body2 my-text-color q-mb-md">All of transaction data</div>
+    <q-separator class="q-mb-md"/>
+    <q-card class="shadow-card">
+      <q-card-section>
+        <q-table
+          flat
+          :rows="rows"
+          :columns="DefaultColumns"
+          row-key="name"
+          separator="none"
+        >
+          <template v-slot:body="props">
+            <q-tr :props="props">
+              <q-td key="user" :props="props">
+                <div class="row q-col-gutter-x-sm">
+                  <div class="col-3">
+                    <q-avatar>
+                      <img :src="props.row.img" alt="">
+                    </q-avatar>
+                  </div>
+                  <div class="col-2">
+                    <div class="text-bold text-body1">{{ props.row.name }}</div>
+                    <div class="">{{ props.row.role }}</div>
+                  </div>
+                </div>
+              </q-td>
+              <q-td key="item" :props="props">
+                {{ props.row.item }}
+              </q-td>
+              <q-td key="price" :props="props">
+                {{ props.row.price }}
+              </q-td>
+              <q-td key="qty" :props="props">
+                {{ props.row.qty }}
+              </q-td>
+              <q-td key="total" :props="props">
+                {{ props.row.total }}
+              </q-td>
+              <q-td key="status" :props="props">
+                <q-badge class="q-pa-sm" :color="listStatus[props.row.status].color" outline>
+                  {{ listStatus[props.row.status].label }}
+                </q-badge>
+              </q-td>
+            </q-tr>
+          </template>
+        </q-table>
+      </q-card-section>
+    </q-card>
   </q-page>
 </template>
 <script lang="ts">
 import SummaryCard from 'src/components/card/SummaryCard.vue'
+import { QTableProps } from 'quasar'
 
 export default {
   components: {
     SummaryCard
   },
   setup () {
+    const DefaultColumns: QTableProps['columns'] = [
+      { name: 'user', label: 'User', field: 'user', align: 'left' },
+      { name: 'item', label: 'Item', field: 'item', align: 'left' },
+      { name: 'price', label: 'Price', field: 'item', align: 'left' },
+      { name: 'qty', label: 'Qty', field: 'qty', align: 'left' },
+      { name: 'total', label: 'Total', field: 'total', align: 'left' },
+      { name: 'status', label: 'Status', field: 'status', align: 'left' }
+    ]
+    type status = {
+      label: string,
+      color: string
+    }
+    const listStatus: Record<number, status> = {
+      1: {
+        label: 'Pending',
+        color: 'warning'
+      },
+      2: {
+        label: 'Failed',
+        color: 'negative'
+      },
+      3: {
+        label: 'Success',
+        color: 'positive'
+      },
+      4: {
+        label: 'Cancled',
+        color: 'negative'
+      }
+    }
+
     return {
+      listStatus,
       datas: [
         {
           bgColor: 'rgb(236,243,254)',
@@ -105,6 +184,49 @@ export default {
           val: 11,
           max: 15,
           color: 'green'
+        }
+      ],
+      DefaultColumns,
+      rows: [
+        {
+          name: 'Dika',
+          role: 'Customer',
+          item: 'TV',
+          price: '$40',
+          qty: 1,
+          total: '$40',
+          status: 1,
+          img: `https://picsum.photos/500/300?t=${Math.random()}`
+        },
+        {
+          name: 'Hastanto',
+          role: 'Dropshipper',
+          item: 'Smartphone',
+          price: '$50',
+          qty: 1,
+          total: '$100',
+          status: 2,
+          img: `https://picsum.photos/500/300?t=${Math.random()}`
+        },
+        {
+          name: 'Budi',
+          role: 'Buyer',
+          item: 'Laptop',
+          price: '$500',
+          qty: 1,
+          total: '$500',
+          status: 3,
+          img: `https://picsum.photos/500/300?t=${Math.random()}`
+        },
+        {
+          name: 'Andi',
+          role: 'Buyer',
+          item: 'Laptop',
+          price: '$500',
+          qty: 1,
+          total: '$500',
+          status: 4,
+          img: `https://picsum.photos/500/300?t=${Math.random()}`
         }
       ]
     }

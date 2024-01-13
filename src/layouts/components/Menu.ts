@@ -56,6 +56,16 @@ export const menus:Menu[] = [
       },
       {
         icon: 'chevron_right',
+        text: 'Dialog',
+        to: 'dialogAdmin'
+      },
+      {
+        icon: 'chevron_right',
+        text: 'Notify',
+        to: 'notifyAdmin'
+      },
+      {
+        icon: 'chevron_right',
         text: 'Tab',
         to: 'tabAdmin'
       }
@@ -73,5 +83,36 @@ export const menus:Menu[] = [
         to: 'tableAdmin'
       }
     ]
+  },
+  {
+    isTitle: true,
+    text: 'Pages & Apps',
+    isDivider: false,
+    icon: ''
+  },
+  {
+    icon: 'security',
+    isDivider: false,
+    isTitle: false,
+    text: 'Auth',
+    child: [
+      {
+        icon: 'chevron_right',
+        text: 'Login',
+        to: 'loginPage'
+      },
+      {
+        icon: 'chevron_right',
+        text: 'Register',
+        to: 'registerPage'
+      }
+    ]
+  },
+  {
+    to: 'blankAdmin',
+    icon: 'check_box_outline_blank',
+    isDivider: false,
+    isTitle: false,
+    text: 'Blank Page'
   }
 ]
