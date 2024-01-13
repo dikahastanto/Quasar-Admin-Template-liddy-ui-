@@ -54,8 +54,8 @@ export default {
   setup () {
     const router = useRouter()
     const form = ref({
-      username: '',
-      password: ''
+      username: 'admin',
+      password: '123'
     })
     const isLoading = ref(false)
     const visible = ref(false)
