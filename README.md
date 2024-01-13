@@ -1,33 +1,26 @@
-# LIDDY UI (liddy-ui)
 
-Liddy UI
+# LIDDY UI
 
-## Install the dependencies
+This project was created to help you create a UI from the Quasar framework. The Quasar framework was created using Vue JS which is very powerful for creating spa/PWA apps.
+
+
+
+## How To Use
+
+To start project
+
+Clone this repository
+
 ```bash
-yarn
-# or
-npm install
+  npm install
+```
+and then
+
+```bash
+  quasar dev
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
 
+## 🚀 About Me
+currently learning programming...
 
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
