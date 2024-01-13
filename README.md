@@ -19,6 +19,9 @@ and then
   quasar dev
 ```
 
+username = admin
+
+password = 123
 
 ## 🚀 About Me
 currently learning programming...
