@@ -92,6 +92,13 @@ export const menus:Menu[] = [
     ]
   },
   {
+    to: 'notesAppAdmin',
+    icon: 'description',
+    isDivider: false,
+    isTitle: false,
+    text: 'Notes App'
+  },
+  {
     to: 'blankAdmin',
     icon: 'check_box_outline_blank',
     isDivider: false,

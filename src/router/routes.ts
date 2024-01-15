@@ -58,6 +58,11 @@ const routes: RouteRecordRaw[] = [
         path: 'form',
         name: 'formAdmin',
         component: () => import('src/pages/admin/form/Index.vue')
+      },
+      {
+        path: 'notes',
+        name: 'notesAppAdmin',
+        component: () => import('src/pages/admin/note/Index.vue')
       }
     ]
   },
