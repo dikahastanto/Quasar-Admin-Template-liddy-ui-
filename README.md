@@ -4,6 +4,12 @@ This project was created to help you create a UI from the Quasar framework. The 
 
 
 
+
+## Demo
+
+Visit demo link
+
+https://aquamarine-pony-294c3b.netlify.app/#/
 ## How To Use
 
 To start project
@@ -18,6 +24,10 @@ and then
 ```bash
   quasar dev
 ```
+
+username = admin
+
+password = 123
 
 ## 🚀 About Me
 currently learning programming...
