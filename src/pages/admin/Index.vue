@@ -32,6 +32,47 @@
         />
       </div>
     </div>
+    <div class="row q-mt-md q-col-gutter-sm">
+      <div class="col-4">
+        <q-card class="shadow-card">
+          <q-card-section>
+            <MyBarChart/>
+          </q-card-section>
+        </q-card>
+      </div>
+      <div class="col-4">
+        <q-card class="shadow-card">
+          <q-card-section>
+            <MyDoughnatChart/>
+          </q-card-section>
+        </q-card>
+      </div>
+      <div class="col-4">
+        <q-card class="shadow-card my-text-color full-height">
+          <q-card-section>
+            <div class="text-h6">Payment Status</div>
+            <div class="text-body2 q-mb-lg">All of status transaction</div>
+            <TransactionStatusCard
+              v-for="(s, i) in dataStatus"
+              :key="i"
+              :colorCard="s.color"
+              :title="s.title"
+              :desc="s.desc"
+              class="q-mb-md"
+              :val="s.val"
+              :icon="s.icon"
+            />
+            <q-btn
+              label="View All Status"
+              no-caps
+              color="primary"
+              outline
+              class="full-width q-mt-md"
+            />
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
     <div class="text-body1 q-mt-lg text-bold my-text-color">Transaction</div>
     <div class="text-body2 my-text-color q-mb-md">All of transaction data</div>
     <q-separator class="q-mb-md"/>
@@ -85,11 +126,17 @@
 </template>
 <script lang="ts">
 import SummaryCard from 'src/components/card/SummaryCard.vue'
-import { QTableProps } from 'quasar'
+import { QTableProps, colors } from 'quasar'
+import MyBarChart from './chart/Bar.vue'
+import MyDoughnatChart from './chart/Doughnat.vue'
+import TransactionStatusCard from 'src/components/card/TransactionStatusCard.vue'
 
 export default {
   components: {
-    SummaryCard
+    SummaryCard,
+    MyBarChart,
+    MyDoughnatChart,
+    TransactionStatusCard
   },
   setup () {
     const DefaultColumns: QTableProps['columns'] = [
@@ -122,7 +169,7 @@ export default {
         color: 'negative'
       }
     }
-
+    const { getPaletteColor, changeAlpha } = colors
     return {
       listStatus,
       datas: [
@@ -227,6 +274,38 @@ export default {
           total: '$500',
           status: 4,
           img: `https://picsum.photos/500/300?t=${Math.random()}`
+        }
+      ],
+      getPaletteColor,
+      changeAlpha,
+      dataStatus: [
+        {
+          color: 'warning',
+          icon: 'pending',
+          val: '$50.000',
+          title: 'Pending',
+          desc: 'All of pending transactions'
+        },
+        {
+          color: 'negative',
+          icon: 'feedback',
+          val: '$10.000',
+          title: 'Failed',
+          desc: 'Failed transaction'
+        },
+        {
+          color: 'secondary',
+          icon: 'done',
+          val: '$420.000',
+          title: 'Success',
+          desc: 'Finish transaction'
+        },
+        {
+          color: 'negative',
+          icon: 'keyboard_return',
+          val: '$420.000',
+          title: 'Cancle',
+          desc: 'Cancled by user'
         }
       ]
     }
