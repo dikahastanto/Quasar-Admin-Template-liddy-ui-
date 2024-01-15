@@ -19,18 +19,7 @@ export const menus:Menu[] = [
     isDivider: false,
     isTitle: false,
     text: 'Table',
-    child: [
-      {
-        icon: 'chevron_right',
-        text: 'Default Table',
-        to: 'tableAdmin'
-      },
-      {
-        icon: 'chevron_right',
-        text: 'Pagination Table',
-        to: 'tablePaginationAdmin'
-      }
-    ]
+    to: 'tableAdmin'
   },
   {
     isTitle: true,
@@ -76,13 +65,7 @@ export const menus:Menu[] = [
     isDivider: false,
     isTitle: false,
     text: 'Forms',
-    child: [
-      {
-        icon: 'chevron_right',
-        text: 'Card',
-        to: 'tableAdmin'
-      }
-    ]
+    to: 'formAdmin'
   },
   {
     isTitle: true,

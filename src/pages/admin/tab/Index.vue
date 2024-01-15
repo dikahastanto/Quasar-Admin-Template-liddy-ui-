@@ -52,10 +52,10 @@
         <q-tab-panels v-model="tab" animated>
           <q-tab-panel name="mails">
             <div class="row q-col-gutter-x-md">
-              <div class="col-3">
+              <div class="col-md-3 col-xs-12">
                 <q-img src="https://fastly.picsum.photos/id/979/500/300.jpg?hmac=YpeoDKd26bHTrifDoNXzLJKydHnPU6q5aOkpc9_7mzU"/>
               </div>
-              <div class="col-9">
+              <div class="col-md-9 col-xs-12">
                 <div class="text-h6">Mails</div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.
@@ -65,11 +65,11 @@
           </q-tab-panel>
           <q-tab-panel name="movie">
             <div class="row q-col-gutter-x-md">
-              <div class="col-3">
+              <div class="col-md-3 col-xs-12">
                 <q-img src="https://fastly.picsum.photos/id/979/500/300.jpg?hmac=YpeoDKd26bHTrifDoNXzLJKydHnPU6q5aOkpc9_7mzU"/>
               </div>
-              <div class="col-9">
-                <div class="text-h6">Movie</div>
+              <div class="col-md-9 col-xs-12">
+                <div class="text-h6">Mails</div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.
@@ -78,11 +78,11 @@
           </q-tab-panel>
           <q-tab-panel name="other">
             <div class="row q-col-gutter-x-md">
-              <div class="col-3">
+              <div class="col-md-3 col-xs-12">
                 <q-img src="https://fastly.picsum.photos/id/979/500/300.jpg?hmac=YpeoDKd26bHTrifDoNXzLJKydHnPU6q5aOkpc9_7mzU"/>
               </div>
-              <div class="col-9">
-                <div class="text-h6">Other</div>
+              <div class="col-md-9 col-xs-12">
+                <div class="text-h6">Mails</div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit maiores velit iure odio, mollitia quod quo veniam commodi fugiat ut officiis ipsam! Numquam laborum similique perferendis quis. Dignissimos, temporibus enim.

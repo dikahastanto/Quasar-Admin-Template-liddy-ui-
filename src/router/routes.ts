@@ -53,6 +53,11 @@ const routes: RouteRecordRaw[] = [
         path: 'blank',
         name: 'blankAdmin',
         component: () => import('src/pages/admin/BlankPage.vue')
+      },
+      {
+        path: 'form',
+        name: 'formAdmin',
+        component: () => import('src/pages/admin/form/Index.vue')
       }
     ]
   },

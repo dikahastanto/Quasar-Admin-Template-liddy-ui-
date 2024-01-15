@@ -3,7 +3,7 @@
     <div class="row dashboard-card my-card">
       <div class="col-lg-8 col-md-8 col-xs-12 col-sm-6 text-bold text-h6 my-text-color items-center">
         <div class="row">
-          Welcome back adminku!
+          Welcome back my admin!
         </div>
         <div class="row q-mt-lg">
           <div class="q-mr-lg">
@@ -47,13 +47,13 @@
           <template v-slot:body="props">
             <q-tr :props="props">
               <q-td key="user" :props="props">
-                <div class="row q-col-gutter-x-sm">
-                  <div class="col-3">
+                <div class="row q-col-gutter-x-sm no-wrap">
+                  <div class="col-auto">
                     <q-avatar>
                       <img :src="props.row.img" alt="">
                     </q-avatar>
                   </div>
-                  <div class="col-2">
+                  <div class="col-auto">
                     <div class="text-bold text-body1">{{ props.row.name }}</div>
                     <div class="">{{ props.row.role }}</div>
                   </div>
@@ -151,7 +151,7 @@ export default {
           bgColor: 'rgb(62,217,235, 0.1)',
           textColor: 'rgb(62,217,235)',
           title: 'Followers',
-          data: '35 Ha',
+          data: '35',
           icons: 'icon-connect.svg'
         }
 
