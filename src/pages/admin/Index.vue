@@ -33,21 +33,21 @@
       </div>
     </div>
     <div class="row q-mt-md q-col-gutter-sm">
-      <div class="col-4">
+      <div class="col-md-4 col-sm-6 col-xs-12">
         <q-card class="shadow-card">
           <q-card-section>
             <MyBarChart/>
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-4">
+      <div class="col-md-4 col-sm-6 col-xs-12">
         <q-card class="shadow-card">
           <q-card-section>
             <MyDoughnatChart/>
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12 col-xs-12">
         <q-card class="shadow-card my-text-color full-height">
           <q-card-section>
             <div class="text-h6">Payment Status</div>
