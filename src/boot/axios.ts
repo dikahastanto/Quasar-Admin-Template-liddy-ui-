@@ -1,30 +1,85 @@
-import { boot } from 'quasar/wrappers'
-import axios, { AxiosInstance } from 'axios'
+import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import { errNotif, notify } from 'src/helpers/Notify'
+import { getProfile } from 'src/helpers/Session'
+import config from '../../config'
+import Logout from 'src/helpers/Logout'
 
-declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties {
-    $axios: AxiosInstance;
+export interface paginate {
+  // filter: string, if you performing filtering data
+  offset: number,
+  limit: number,
+  total_users: number
+}
+export interface ResponseAPI <T = never> {
+  code: number,
+  message: string,
+  users: T, // you can change this
+  success: boolean,
+  // paginate?: paginate, if you want separate paginate response
+  limit: number,
+  offset: number,
+  total_users: number
+
+}
+
+const defaultErrorMsg = 'Terjadi kesalahan saat koneksi ke server'
+
+const parseResponse = (withToast = true) => {
+  return function (response: AxiosResponse<ResponseAPI>) {
+    if (response.status === 200) {
+      if (response.data.success) {
+        if (withToast) notify(response.data.message)
+      } else {
+        errNotif(response.data.message)
+      }
+    }
+    return response
   }
 }
 
-// Be careful when using SSR for cross-request state pollution
-// due to creating a Singleton instance here;
-// If any client changes this (global) instance, it might be a
-// good idea to move this instance creation inside of the
-// "export default () => {}" function below (which runs individually
-// for each client)
-const api = axios.create({ baseURL: 'https://api.example.com' })
+const parseError = (error: {response: AxiosResponse<ResponseAPI>}) => {
+  if (error.response) {
+    if (error.response.status === 401) {
+      Logout()
+    } else {
+      errNotif(error.response.data.message ?? defaultErrorMsg)
+    }
+  } else {
+    errNotif('Gagal koneksi ke server')
+  }
 
-export default boot(({ app }) => {
-  // for use inside Vue files (Options API) through this.$axios and this.$api
+  return Promise.reject(error)
+}
 
-  app.config.globalProperties.$axios = axios
-  // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
-  //       so you won't necessarily have to import axios in each vue file
+const createAxios = (withToast = true) => {
+  const api = axios.create({
+    baseURL: config.baseURL
+  })
+  api.interceptors.request.use(createToken)
+  if (withToast) {
+    api.interceptors.response.use(parseResponse(), parseError)
+  } else {
+    api.interceptors.response.use(parseResponse(false), parseError)
+  }
 
-  app.config.globalProperties.$api = api
-  // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
-  //       so you can easily perform requests against your app's API
-})
+  return api
+}
 
-export { api }
+const createToken = (config: InternalAxiosRequestConfig) => {
+  const user = getProfile()
+
+  if (user) {
+    // send token to backend
+    config.headers.token = user.token
+    config.headers.username = user.username
+  }
+  return config
+}
+
+// api without toast, you can handle toast or notif in page
+const api = createAxios(false)
+
+// auto call notify
+const apiToast = createAxios()
+
+export { api, apiToast }

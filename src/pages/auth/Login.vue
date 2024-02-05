@@ -49,6 +49,8 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { errNotif } from 'src/helpers/Notify'
 import { useQuasar } from 'quasar'
+import { setProfile, TUser } from 'src/helpers/Session'
+import { allAkses } from 'src/helpers/ListAkses'
 
 export default {
   setup () {
@@ -64,10 +66,44 @@ export default {
 
     const onSubmit = async () => {
       if (form.value.username === 'admin' && form.value.password === '123') {
-        router.push({ name: 'dashboardAdmin' })
+        // example from api
+        // const res = await api.post<ResponseAPI<TUser>>('user/sign-in', form.value)
+        // if (res.data.status) {
+        //   goToHome(res.data.result)
+        // }
+        const res: TUser = {
+          iduser: 1,
+          nama: 'Dika Hastanto',
+          role: 'admin',
+          token: '323949298hifih4infnfn494ibfi449',
+          username: 'admin'
+        }
+        goToHome(res)
+        // router.push({ name: 'dashboardAdmin' })
       } else {
         errNotif('Username or Password not correct')
       }
+    }
+
+    const goToHome = (data: TUser) => {
+      const access = data.role
+      if (access) {
+        const page = allAkses.find(r => {
+          return r.value === access
+        })
+        if (page) {
+          setProfile(data)
+          router.push({ name: page.index })
+        } else {
+          deniedAccess()
+        }
+      } else {
+        deniedAccess()
+      }
+    }
+
+    const deniedAccess = () => {
+      errNotif('Akses Dilarang')
     }
 
     const getContainer = () => {

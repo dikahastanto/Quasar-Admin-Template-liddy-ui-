@@ -15,8 +15,6 @@
         <q-toolbar-title>
           Dashboard UI
         </q-toolbar-title>
-
-        <!-- <div>Geo Farm v1.0.0</div> -->
         <div>
           <q-btn round flat>
             <q-avatar>
@@ -83,6 +81,7 @@
                       color="primary"
                       class="full-width q-mt-sm q-px-lg"
                       dense
+                      @click="Logout"
                     />
                   </div>
                 </q-card-section>
@@ -141,6 +140,7 @@
 import { ref } from 'vue'
 import { menus } from './components/Menu'
 import MenuItem from './components/MenuItem.vue'
+import Logout from 'src/helpers/Logout'
 
 export default {
   name: 'MainLayout',
@@ -154,7 +154,8 @@ export default {
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
-      menus
+      menus,
+      Logout
     }
   }
 }

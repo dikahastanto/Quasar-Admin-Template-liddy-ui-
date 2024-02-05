@@ -19,7 +19,18 @@ export const menus:Menu[] = [
     isDivider: false,
     isTitle: false,
     text: 'Table',
-    to: 'tableAdmin'
+    child: [
+      {
+        icon: 'chevron_right',
+        text: 'Table Default',
+        to: 'tableAdmin'
+      },
+      {
+        icon: 'chevron_right',
+        text: 'Table Pagination',
+        to: 'tablePaginationAdmin'
+      }
+    ]
   },
   {
     isTitle: true,
