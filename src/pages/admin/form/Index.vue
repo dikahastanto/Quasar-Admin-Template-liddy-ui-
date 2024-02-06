@@ -1,8 +1,8 @@
 <template>
   <q-page padding>
     <HeaderPage
-      title="Table"
-      subTitle="Default Table"
+      title="Form"
+      subTitle="Example Form"
       headerFor="form"
     />
     <q-card class="shadow-card">

@@ -1,7 +1,7 @@
 <template>
-  <q-layout view="lHh Lpr lFf" class="bg-app">
-    <q-header class="bg-app my-text-color">
-      <q-toolbar>
+  <q-layout view="lHh Lpr lFf" >
+    <q-header class="bg-app my-hd my-text-color">
+      <q-toolbar dark>
         <q-btn
           flat
           dense
@@ -16,6 +16,20 @@
           Dashboard UI
         </q-toolbar-title>
         <div>
+          <q-btn
+            round
+            flat
+            :icon="`${AppFullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'}`"
+            class="q-mr-sm"
+            @click="AppFullscreen.toggle()"
+          />
+          <q-btn
+            round
+            flat
+            :icon="`${Dark.isActive ? 'dark_mode' : 'light_mode'}`"
+            class="q-mr-sm"
+            @click="Dark.toggle"
+          />
           <q-btn round flat>
             <q-avatar>
               <q-img src="~assets/img/user.svg" class="bg-primary"/>
@@ -96,6 +110,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      :width="270"
     >
       <div class="q-ml-md q-mb-lg q-mt-lg">
         <div class="row">
@@ -141,6 +156,7 @@ import { ref } from 'vue'
 import { menus } from './components/Menu'
 import MenuItem from './components/MenuItem.vue'
 import Logout from 'src/helpers/Logout'
+import { Dark, AppFullscreen } from 'quasar'
 
 export default {
   name: 'MainLayout',
@@ -150,6 +166,8 @@ export default {
     const leftDrawerOpen = ref(false)
 
     return {
+      Dark,
+      AppFullscreen,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value

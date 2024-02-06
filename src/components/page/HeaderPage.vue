@@ -1,5 +1,5 @@
 <template>
-  <div class="row dashboard-card my-card q-mb-md">
+  <div class="row banner-card my-card q-mb-md">
     <div class="col-lg-8 col-md-8 col-xs-12 col-sm-6 my-text-color items-center">
       <div class="row text-bold text-h6">
         {{ title }}
@@ -47,9 +47,3 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="sass" scoped>
-.dashboard-card
-  background-color: #ecf3fe
-  padding: 2em
-
-</style>
