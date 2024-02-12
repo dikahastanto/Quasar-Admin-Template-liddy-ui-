@@ -2,14 +2,31 @@
   <q-page padding>
     <WelcomeBanner/>
     <div class="row q-mt-xs q-col-gutter-x-md q-col-gutter-y-md">
-      <div class="col-md-3 col-sm-6 col-xs-12" v-for="(d, i) in datas" :key="i">
-        <summary-card
-          :bg-colors="d.bgColor"
-          :textColor="d.textColor"
+      <div class="col-md-3 col-sm-6 col-xs-12" v-for="(d, i) in summary" :key="i">
+        <SummaryCard
+          :bg-icon-color="d.bgIconColor"
+          :icon-color="d.iconColor"
+          :count="formatNumber(Number(d.data))"
           :title="d.title"
-          :count="d.data"
           :icons="d.icons"
         />
+        <!-- <q-card class="shadow-card">
+          <q-card-section>
+            <div class="row flex-center">
+              <q-avatar color="blue-1" size="4.4em">
+                <q-icon name="account_balance_wallet" color="blue-7" size="0.8em"/>
+              </q-avatar>
+            </div>
+            <div class="text-center q-mt-sm">
+              <div class="text-h6">
+                3234234
+              </div>
+              <div class="my-text-color">
+                Total Transaction
+              </div>
+            </div>
+          </q-card-section>
+        </q-card> -->
       </div>
     </div>
     <div class="row q-mt-md q-col-gutter-sm">
@@ -106,19 +123,20 @@
 </template>
 <script lang="ts">
 import WelcomeBanner from '../../components/dashboard/WelcomeBanner.vue'
-import SummaryCard from 'src/components/card/SummaryCard.vue'
 import { QTableProps, colors } from 'quasar'
 import MyBarChart from './chart/Bar.vue'
 import MyDoughnatChart from './chart/Doughnat.vue'
 import TransactionStatusCard from 'src/components/card/TransactionStatusCard.vue'
+import SummaryCard from 'src/components/card/SummaryCard.vue'
+import { formatNumber } from 'src/helpers/Number'
 
 export default {
   components: {
-    SummaryCard,
     MyBarChart,
     MyDoughnatChart,
     TransactionStatusCard,
-    WelcomeBanner
+    WelcomeBanner,
+    SummaryCard
   },
   setup () {
     const DefaultColumns: QTableProps['columns'] = [
@@ -153,38 +171,8 @@ export default {
     }
     const { getPaletteColor, changeAlpha } = colors
     return {
+      formatNumber,
       listStatus,
-      datas: [
-        {
-          bgColor: 'rgb(236,243,254)',
-          textColor: 'rgb(70, 138, 247)',
-          title: 'Users',
-          data: '10',
-          icons: 'icon-user-male.svg'
-        },
-        {
-          bgColor: 'rgb(235,1,1, 0.1)',
-          textColor: 'rgb(235,1,1)',
-          title: 'Items',
-          data: '35',
-          icons: 'icon-favorites.svg'
-        },
-        {
-          bgColor: 'rgb(230,255,250)',
-          textColor: 'rgb(46, 164, 141)',
-          title: 'Purchased',
-          data: '12',
-          icons: 'icon-speech-bubble.svg'
-        },
-        {
-          bgColor: 'rgb(62,217,235, 0.1)',
-          textColor: 'rgb(62,217,235)',
-          title: 'Followers',
-          data: '35',
-          icons: 'icon-connect.svg'
-        }
-
-      ],
       cards: [
         {
           name: 'Google Drive',
@@ -288,6 +276,36 @@ export default {
           val: '$420.000',
           title: 'Cancle',
           desc: 'Cancled by user'
+        }
+      ],
+      summary: [
+        {
+          bgIconColor: 'blue-1',
+          iconColor: 'blue-7',
+          title: 'Total Users',
+          data: '332120',
+          icons: 'account_balance_wallet'
+        },
+        {
+          bgIconColor: 'purple-1',
+          iconColor: 'purple-7',
+          title: 'Total Oreders',
+          data: '43553',
+          icons: 'local_mall'
+        },
+        {
+          bgIconColor: 'teal-1',
+          iconColor: 'teal-7',
+          title: 'Total Delivered',
+          data: '43553',
+          icons: 'local_shipping'
+        },
+        {
+          bgIconColor: 'deep-orange-1',
+          iconColor: 'deep-orange-7',
+          title: 'Total Cancelled',
+          data: '43553',
+          icons: 'settings_backup_restore'
         }
       ]
     }

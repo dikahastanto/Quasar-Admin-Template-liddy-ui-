@@ -7,6 +7,19 @@
         <BooksCard title="Untitled 1" description="Description this book"/>
       </div>
     </div>
+    <div class="text-body1 q-mt-lg text-bold my-text-color q-mb-md">Summary Card</div>
+    <q-separator class="q-mb-md"/>
+    <div class="row q-col-gutter-x-md q-col-gutter-y-md">
+      <div class="col-md-3 col-sm-6 col-xs-12" v-for="(d, i) in datas" :key="i">
+        <summary-card
+          :bg-colors="d.bgColor"
+          :textColor="d.textColor"
+          :title="d.title"
+          :count="d.data"
+          :icons="d.icons"
+        />
+      </div>
+    </div>
     <div class="text-body1 q-mt-lg text-bold my-text-color q-mb-md">Social Card</div>
     <q-separator class="q-mb-md"/>
     <div class="row q-col-gutter-x-md q-col-gutter-y-md">
@@ -66,9 +79,10 @@
 </template>
 <script lang="ts">
 import BooksCard from 'src/components/card/BooksCard.vue'
+import SummaryCard from 'src/components/card/OtherSummaryCard.vue'
 
 export default {
-  components: { BooksCard },
+  components: { BooksCard, SummaryCard },
   setup () {
     return {
       cards: [
@@ -100,6 +114,37 @@ export default {
           max: 15,
           color: 'green'
         }
+      ],
+      datas: [
+        {
+          bgColor: 'rgb(236,243,254)',
+          textColor: 'rgb(70, 138, 247)',
+          title: 'Users',
+          data: '10',
+          icons: 'icon-user-male.svg'
+        },
+        {
+          bgColor: 'rgb(235,1,1, 0.1)',
+          textColor: 'rgb(235,1,1)',
+          title: 'Items',
+          data: '35',
+          icons: 'icon-favorites.svg'
+        },
+        {
+          bgColor: 'rgb(230,255,250)',
+          textColor: 'rgb(46, 164, 141)',
+          title: 'Purchased',
+          data: '12',
+          icons: 'icon-speech-bubble.svg'
+        },
+        {
+          bgColor: 'rgb(62,217,235, 0.1)',
+          textColor: 'rgb(62,217,235)',
+          title: 'Followers',
+          data: '35',
+          icons: 'icon-connect.svg'
+        }
+
       ]
     }
   }
