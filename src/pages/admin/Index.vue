@@ -10,23 +10,6 @@
           :title="d.title"
           :icons="d.icons"
         />
-        <!-- <q-card class="shadow-card">
-          <q-card-section>
-            <div class="row flex-center">
-              <q-avatar color="blue-1" size="4.4em">
-                <q-icon name="account_balance_wallet" color="blue-7" size="0.8em"/>
-              </q-avatar>
-            </div>
-            <div class="text-center q-mt-sm">
-              <div class="text-h6">
-                3234234
-              </div>
-              <div class="my-text-color">
-                Total Transaction
-              </div>
-            </div>
-          </q-card-section>
-        </q-card> -->
       </div>
     </div>
     <div class="row q-mt-md q-col-gutter-sm">

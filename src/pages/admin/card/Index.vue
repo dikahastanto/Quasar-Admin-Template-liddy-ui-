@@ -20,6 +20,19 @@
         />
       </div>
     </div>
+    <div class="text-body1 q-mt-lg text-bold my-text-color q-mb-md">Product Card</div>
+    <q-separator class="q-mb-md"/>
+    <div class="row q-col-gutter-x-md q-col-gutter-y-md">
+      <div class="col-md-3 col-sm-6 col-xs-12" v-for="(product, i) in products" :key="i">
+        <ProductCard
+          :image="product.image"
+          :price="product.price"
+          :product-name="product.productName"
+          :rating-count="product.ratingCount"
+          :stars="product.stars"
+        />
+      </div>
+    </div>
     <div class="text-body1 q-mt-lg text-bold my-text-color q-mb-md">Social Card</div>
     <q-separator class="q-mb-md"/>
     <div class="row q-col-gutter-x-md q-col-gutter-y-md">
@@ -78,11 +91,16 @@
   </q-page>
 </template>
 <script lang="ts">
+import ProductCard from '../../../components/card/ProductCard.vue'
 import BooksCard from 'src/components/card/BooksCard.vue'
 import SummaryCard from 'src/components/card/OtherSummaryCard.vue'
 
 export default {
-  components: { BooksCard, SummaryCard },
+  components: {
+    BooksCard,
+    SummaryCard,
+    ProductCard
+  },
   setup () {
     return {
       cards: [
@@ -145,6 +163,37 @@ export default {
           icons: 'icon-connect.svg'
         }
 
+      ],
+      stars: 4,
+      products: [
+        {
+          image: 'https://static.vecteezy.com/system/resources/previews/017/054/078/large_2x/headphones-design-3d-rendering-for-product-mockup-free-png.png',
+          stars: 4.5,
+          productName: 'Headset',
+          price: 124000,
+          ratingCount: 131
+        },
+        {
+          image: 'https://static.vecteezy.com/system/resources/previews/008/847/294/non_2x/isolated-black-t-shirt-white-hanger-free-png.png',
+          stars: 3.5,
+          productName: 'Mens T-shirt',
+          price: 124000,
+          ratingCount: 131
+        },
+        {
+          image: 'https://static.vecteezy.com/system/resources/previews/017/054/078/large_2x/headphones-design-3d-rendering-for-product-mockup-free-png.png',
+          stars: 4.5,
+          productName: 'Headset',
+          price: 124000,
+          ratingCount: 131
+        },
+        {
+          image: 'https://static.vecteezy.com/system/resources/previews/008/847/294/non_2x/isolated-black-t-shirt-white-hanger-free-png.png',
+          stars: 3.5,
+          productName: 'Mens T-shirt',
+          price: 124000,
+          ratingCount: 131
+        }
       ]
     }
   }
