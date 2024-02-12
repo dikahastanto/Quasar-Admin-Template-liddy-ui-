@@ -31,35 +31,27 @@
     </q-card-actions>
   </q-card>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import { formatPrice } from 'src/helpers/Number'
+defineOptions({
+  name: 'ProductCard'
+})
 
-export default {
-  name: 'ProductCard',
-  props: {
-    image: {
-      type: String,
-      required: true
-    },
-    stars: {
-      type: Number,
-      default: 1
-    },
-    productName: String,
-    price: {
-      type: Number,
-      default: 0
-    },
-    ratingCount: {
-      type: Number,
-      default: 0
-    }
-  },
-  setup (props) {
-    return {
-      productStars: props.stars,
-      formatPrice
-    }
-  }
+interface Props {
+  image: string,
+  stars: number,
+  productName: string,
+  price: number,
+  ratingCount: number
 }
+
+const props = withDefaults(defineProps<Props>(), {
+  ratingCount: 0,
+  price: 0,
+  productName: '',
+  stars: 0
+})
+
+const productStars = props.stars
+
 </script>
