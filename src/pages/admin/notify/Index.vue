@@ -1,7 +1,9 @@
 <template>
   <q-page padding>
     <div class="row q-gutter-sm q-mb-sm">
-      <q-btn @click="showNotif" label="Show Notif" color="primary" unelevated no-caps/>
+      <q-btn @click="notify('Parimary Notify', 'primary')" label="Success Notif" color="primary" unelevated no-caps/>
+      <q-btn @click="notify('Transaction Succesfull', 'positive')" label="Success Notif" color="positive" unelevated no-caps/>
+      <q-btn @click="notify('Please Update Your Profile', 'warning')" label="Warning Notif" color="warning" unelevated no-caps/>
       <q-btn @click="errNotif('Failed To Load')" label="Error Notif" color="negative" unelevated no-caps/>
     </div>
     <div>You can customize default configuration notify in src/helper/Notify.ts</div>
@@ -13,8 +15,8 @@ import { notify, errNotif } from 'src/helpers/Notify'
 export default {
   setup () {
     return {
-      showNotif: () => notify('Sample Notify', 'positive'),
-      errNotif
+      errNotif,
+      notify
     }
   }
 }

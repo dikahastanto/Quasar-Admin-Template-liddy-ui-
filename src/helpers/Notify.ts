@@ -33,8 +33,8 @@ const listAttr : TAttr = {
     title: 'Warning'
   },
   primary: {
-    icon: 'Informasi',
-    title: 'info'
+    icon: 'info',
+    title: 'Informasi'
   }
 }
 
