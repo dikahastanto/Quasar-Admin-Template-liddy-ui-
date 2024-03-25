@@ -7,6 +7,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/auth/Login.vue'),
     name: 'loginPage'
   },
+  {
+    path: '/landingpage',
+    component: () => import('pages/landingpage/Index.vue'),
+    name: 'landingPage'
+  },
   admin,
 
   // Always leave this as last one,
