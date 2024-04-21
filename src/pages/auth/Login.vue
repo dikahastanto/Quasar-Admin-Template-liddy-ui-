@@ -135,7 +135,7 @@ export default {
   position: absolute !important
 
 .right-section
-  background-color: white !important
+  background-color: white
 .center
   margin: auto
   width: 50%
